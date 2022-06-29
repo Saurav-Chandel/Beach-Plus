@@ -1,0 +1,132 @@
+{% extends 'all.html' %}
+{% block content %}
+{% load static %}
+ <!--/ sidebar  -->
+    <!--/ menu  -->
+    <div class="main_content_iner overly_inner ">
+        <div class="container-fluid p-0 ">
+            <!-- page title  -->
+            <div class="row">
+                <div class="col-12">
+                    <div class="page_title_box d-flex align-items-center justify-content-between">
+                        <div class="page_title_left">
+                            <!-- <h3 class="f_s_30 f_w_700 text_white" >Dashboard</h3> -->
+                            <ol class="breadcrumb page_bradcam mb-0">
+                                <li class="breadcrumb-item"><a href="/BeachPlus/BusinessManagement/">Business Management </a></li>
+                                <li class="breadcrumb-item active"><a href="/BeachPlus/Business/{{business.User_id}}/">Business Details</a></li>
+                                <!-- <li class="breadcrumb-item active">Sales</li> -->
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row ">
+                <div class="col-lg-12">
+                    <div class="white_card">
+                        <div class="back_icon">
+                            <a href="/BeachPlus/BusinessManagement/">
+                                <i class="ti-arrow-left"></i>
+                            </a>
+                        </div>
+                        <!-- <h4 class="p-3 f_s_30 f_w_700">Business Details</h4> -->
+                        <div class="row px-4 pb-5">
+                            <div class="col-sm-4">
+                                
+                                <div class="business_img mb-3">
+                                    {% if business.ProfileImage %}
+                                    <img src="{{business.ProfileImage.url}}" alt="" class="img-fluid" />
+                                    {% endif %}
+                                </div>
+                                
+                                <!--<div class="img_cover">-->
+                                <!--            {% if business.ProfileImage %}-->
+                                <!--               <img src="{{ business.ProfileImage.url }}" class="rounded-lg me-2" alt="">-->
+                                <!--            {% else %}-->
+                                <!--               <img src="" class="rounded-lg me-2" alt="">-->
+                                <!--            {% endif %} -->
+                                <!--<div class="row">-->
+                                    
+                                    <div class="col-sm-3">
+                                        <div class="business_img_sm">
+                                            <img src="img/business_img.png" alt="" class="img-fluid" />
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <div class="business_img_sm">
+                                            <img src="img/business_img.png" alt="" class="img-fluid" />
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <div class="business_img_sm">
+                                            <img src="img/business_img.png" alt="" class="img-fluid" />
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+                                <div class="col-sm-8 pl-5">
+                                <div class="business_details">
+                                    <div class="row">
+                                        <div class="col-sm-6 mb-3">
+                                            <h5 class="mb-0">Location</h5>
+                                            <h4>{{business.Location}}</h4>
+                                        </div>
+                                        <div class="col-sm-6 mb-3">
+                                            <h5 class="mb-0">Contact Number</h5>
+                                            <h4>{{business.Contact}}</h4>
+                                        </div>
+                                        <div class="col-sm-6 mb-3">
+                                            <h5 class="mb-0">Tennis Courts</h5>
+                                            <h4>{{business.TennisCourts}}</h4>
+                                        </div>
+                                        <div class="col-sm-6 mb-3">
+                                            <h5 class="mb-0">Address</h5>
+                                            <h4>{{business.Address}}</h4>
+                                        </div>
+                                        <div class="col-sm-12 mb-4">
+                                            <h5 class="mb-0">Description</h5>
+                                            <h4>{{business.Description}}</h4>
+                                        </div>
+                                        <div class="col-sm-12">
+                                            <div class="services mb-4">
+                                                <h4 class="main_heading">Services</h4>
+                                                {% for s in services %}
+                                                <span>{{s.Service}}</span>
+                                                <!--<span>Cooking</span>-->
+                                                <!--<span>Beer</span>-->
+                                                <!--<span>Food</span>-->
+                                                {% endfor %}
+                                            </div>
+
+                                            <div class="">
+                                                <h4 class="main_heading">Timings</h4>
+                                                <div class="row">
+                                                    <div class="col-lg-6">
+                                                        <div class="time_table">
+                                                            <h4 class="mb-1">Monday - Friday</h4>
+                                                            <h5 class="mb-0">9:00 AM - 7:00 PM</h5>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-6">
+                                                        <div class="time_table">
+                                                            <h4>Saturday - Sunday</h4>
+                                                            <h5 class="mb-0">9:00 AM - 7:00 PM</h5>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                
+                                            </div>
+                                        </div>
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                            </div>
+                         
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endblock %}

@@ -1,0 +1,121 @@
+
+{% extends 'all.html' %}
+{% block content %}
+{% load static %}
+ <!--/ sidebar  -->
+
+
+    <!--/ menu  -->
+    <div class="main_content_iner overly_inner ">
+        <div class="container-fluid p-0 ">
+            <!-- page title  -->
+            <div class="row">
+                <div class="col-12">
+                    <div class="page_title_box d-flex align-items-center justify-content-between">
+                        <div class="page_title_left">
+                            <!-- <h3 class="f_s_30 f_w_700 text_white" >Dashboard</h3>
+                            <ol class="breadcrumb page_bradcam mb-0">
+                                <li class="breadcrumb-item"><a href="javascript:void(0);">Salessa </a></li>
+                                <li class="breadcrumb-item"><a href="javascript:void(0);">Dashboard</a></li>
+                                <li class="breadcrumb-item active">Sales</li>
+                            </ol> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row ">
+                <div class="col-lg-12">
+                    <div class="white_card">
+                        <h4 class="p-3 f_s_30 f_w_700">Report Management</h4>
+                        <table class="table table_active">
+                            <thead>
+                                <tr>
+                                    <th scope="col">#</th>
+                                    <th scope="col">Image</th>
+                                    <th scope="col">Full Name</th>
+                                    <th scope="col">Feedback</th>
+                                    <th scope="col">Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    {% for profile in data reversed %}
+                                    <td>{{profile.User_id}}</td>
+                                    <td>
+                                        <div class="img_cover">
+                                            {% if profile.User.ProfileImage %}
+                                               <img src="{{ profile.User.ProfileImage.url }}" class="rounded-lg me-2" alt="">
+                                            {% endif %} 
+                                        </div>
+                                    </td>
+                                    <td>{{profile.User.FirstName}} {{profile.User.LastName}}</td>
+                                    <!--<td>{{profile.City}}</td>-->
+                                    <!--<td>{{profile.State}}</td>-->
+                                    <td>{{profile.Message}}</td>
+                                    <td><a href="https://www.google.com/gmail/" class="suspend_btn">Reply</a></td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                    <center>
+                                {% for pg in data.paginator.page_range %}
+                                    {% if pg|stringformat:'s' == data.number|stringformat:'s' %}
+                                    <span><a class="suspend_btn" href="?page={{pg}}"> {{ pg }}</a></span> 
+                                    {% else %}
+                                    <span><a class="btn" href="?page={{pg}}"> {{ pg }}</a></span> 
+                                    {% endif %}
+
+                                    {% endfor %} 
+                            </center>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<!-- main content part end -->
+
+<!-- main content part end -->
+
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <!-- <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5> -->
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <h3 class="text-center">Do you really want to suspend user?</h3>
+        </div>
+        <div class="modal-footer d-flex justify-content-center">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+          <button type="button" class="btn btn-primary" data-dismiss="modal">Yes, Sure</button>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}
+
+  <script src="{% static 'js/jquery-3.4.1.min.js' %}"></script>
+  <!-- popper js -->
+  <script src="{% static 'js/popper.min.js' %}"></script>
+  <!-- bootstarp js -->
+  <script src="{% static 'js/bootstrap.min.js' %}"></script>
+  <!-- sidebar menu  -->
+  <script src="{% static 'js/metisMenu.js' %}"></script>
+  
+  <!-- responsive table -->
+  <script src="{% static 'vendors/datatable/js/jquery.dataTables.min.js' %}"></script>
+  <script src="{% static 'vendors/datatable/js/dataTables.responsive.min.js' %}"></script>
+  <script src="{% static 'vendors/datatable/js/dataTables.buttons.min.js' %}"></script>
+  
+  <!-- scrollabe  -->
+  <script src="{% static 'vendors/scroll/perfect-scrollbar.min.js' %}"></script>
+  <script src="{% static 'vendors/scroll/scrollable-custom.js' %}"></script>
+  
+  <script src="{% static 'js/custom.js' %}"></script>
+</body>
+
+</html> -->
